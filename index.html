@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silky Vyas - Data Scientist | AI/ML Engineer</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
         :root {
-            --bg-color: #0a0a0a; /* Slightly softer black */
+            --bg-color: #0c0c0d;
             --text-color: #e5e5e5;
             --accent-color: #8A2BE2; /* A rich, deep purple */
             --accent-glow: #c084fc;
@@ -26,7 +26,7 @@
             scroll-behavior: auto !important;
         }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Manrope', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             overflow-x: hidden;
@@ -64,31 +64,38 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: transparent;
-        }
-        .preloader-panel {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 50%;
             background-color: var(--bg-color);
-            z-index: 1;
         }
-        .preloader-panel.top { top: 0; }
-        .preloader-panel.bottom { bottom: 0; }
-        .preloader-text-container {
-            font-family: 'Cormorant Garamond', serif; /* Using aesthetic alternative */
-            font-size: 8vw;
-            font-weight: 700;
-            color: var(--text-color);
-            display: flex;
+        .preloader-content {
+            text-align: center;
+            position: relative;
             z-index: 2;
-            white-space: pre;
-            overflow: hidden;
-            height: 9vw; /* Clip the text */
         }
-        .preloader-text-container .char {
-            display: inline-block;
+        .preloader-text {
+            font-size: 2.5vw;
+            font-weight: 600;
+            color: var(--text-color);
+            opacity: 0;
+        }
+        #preloader-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 10vw; /* Increased font size */
+            margin-bottom: 1.5rem;
+        }
+        #preloader-quote {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5vw;
+            color: var(--accent-glow);
+            min-height: 1.5em; /* Reserve space for typing */
+        }
+        #preloader-canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
         #three-canvas {
@@ -114,11 +121,10 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-        }
-        .header .logo, .header .menu {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-color);
+            background: rgba(12, 12, 13, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         .hero {
             height: 100vh;
@@ -182,46 +188,75 @@
             border-radius: 20px;
             margin-bottom: 3rem;
             background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
-            transition: transform 0.4s ease, border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
         }
-        .item-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-color);
+        .item-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(138, 43, 226, 0.15), transparent 80%);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
-        .item-card-title { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: var(--accent-glow); }
-        .item-card-subtitle { color: var(--text-color); opacity: 0.7; margin-bottom: 1.5rem; font-weight: 400; }
-        .item-card-description { font-size: 1.1rem; line-height: 1.7; }
+        .item-card:hover::before {
+            opacity: 1;
+        }
+        .item-card-title { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: var(--accent-glow); position: relative; }
+        .item-card-subtitle { color: var(--text-color); opacity: 0.7; margin-bottom: 1.5rem; font-weight: 400; position: relative; }
+        .item-card-description { font-size: 1.1rem; line-height: 1.7; position: relative; }
+        .item-card-description ul { list-style-position: inside; padding-left: 1rem; }
         
-        .grid-container {
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-        .grid-item h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--accent-glow); }
-        .grid-item p { color: var(--text-color); opacity: 0.7; }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
         .skill-category {
             padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
         }
         .skill-category h3 {
             font-size: 1.5rem;
             color: var(--accent-glow);
             margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--accent-color);
         }
-        .skill-category ul {
-            list-style: none;
-            padding: 0;
+        .skill-category ul { list-style: none; padding: 0; }
+        .skill-category li { margin-bottom: 0.5rem; font-size: 1.1rem; }
+
+        /* --- Final Animation Section --- */
+        #final-animation-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .skill-category li {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        #final-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .final-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8vw; /* Increased font size */
+            font-weight: 700;
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.8);
+            z-index: 2;
         }
 
         .contact-grid {
@@ -244,26 +279,6 @@
             background: rgba(138, 43, 226, 0.1);
             border-color: var(--accent-color);
         }
-        .contact-icon {
-            margin-bottom: 1.5rem;
-        }
-        .contact-icon svg {
-            width: 48px;
-            height: 48px;
-            stroke: var(--accent-glow);
-            stroke-width: 1.5;
-            fill: none;
-        }
-        .contact-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-        .contact-card p {
-            color: var(--text-color);
-            opacity: 0.7;
-            word-wrap: break-word;
-        }
         
         footer {
             text-align: center;
@@ -275,19 +290,20 @@
             .line-wrapper { height: 13vw; }
             .section-title { font-size: 2rem; }
             .item-card-title { font-size: 1.8rem; }
-            .preloader-text-container { font-size: 10vw; height: 11vw; }
+            .preloader-text { font-size: 5vw; }
+            #preloader-name { font-size: 10vw; }
+            #preloader-quote { font-size: 3vw; }
+            .final-quote { font-size: 12vw; } /* Adjusted responsive size */
         }
     </style>
 </head>
 <body>
 
     <div id="preloader">
-        <div class="preloader-panel top"></div>
-        <div class="preloader-panel bottom"></div>
-        <div class="preloader-text-container">
-            <span class="char">S</span><span class="char">I</span><span class="char">L</span><span class="char">K</span><span class="char">Y</span>
-            <span class="char">&nbsp;</span>
-            <span class="char">V</span><span class="char">Y</span><span class="char">A</span><span class="char">S</span>
+        <canvas id="preloader-canvas"></canvas>
+        <div class="preloader-content">
+            <div id="preloader-name" class="preloader-text">Silky Vyas</div>
+            <div id="preloader-quote" class="preloader-text"></div>
         </div>
     </div>
 
@@ -312,7 +328,7 @@
                 <div class="clip-text"><h2 class="section-title">Professional Summary</h2></div>
                 <div class="clip-text">
                     <p class="summary-text">
-                        Driving innovation at the intersection of AI and data, I’m a Computer Science Engineering student with over 2 years of experience in machine learning, data analytics, and business intelligence—backed by 3 virtual internships and 3 live projects with measurable outcomes. Skilled in Python, SQL, Power BI, and core ML algorithms, with a sharp analytical mindset and a passion for solving real-world problems through data-driven strategies.
+                    Ambitious and innovation-focused Computer Science student specializing in Artificial Intelligence, with a proven track record of delivering high-impact solutions through live projects, virtual internships, and independent research. Armed with expertise in Python, SQL, ML algorithms, and business intelligence tools like Power BI, I thrive at the intersection of data, code, and strategy. Known for rapid execution, analytical depth, and a builder’s mindset, I aim to create scalable AI-driven solutions that solve real-world problems. Actively seeking challenging roles that push boundaries and drive meaningful tech disruption.
                     </p>
                 </div>
             </section>
@@ -323,17 +339,17 @@
                     <div class="item-card">
                         <h3 class="item-card-title">Machine Learning Intern</h3>
                         <p class="item-card-subtitle">IBM SkillsBuild - Oct 2024</p>
-                        <p class="item-card-description">Implemented 5+ ML algorithms achieving 85%+ accuracy. Developed data preprocessing pipelines reducing processing time by 40%. Created automated model evaluation framework.</p>
+                        <div class="item-card-description"><ul><li>Implemented 5+ ML algorithms achieving 85%+ accuracy.</li><li>Developed data preprocessing pipelines reducing processing time by 40%.</li><li>Created automated model evaluation framework.</li></ul></div>
                     </div>
                     <div class="item-card">
                         <h3 class="item-card-title">Data Analytics Intern</h3>
                         <p class="item-card-subtitle">Trainity - 8 Weeks</p>
-                        <p class="item-card-description">Completed live analytics project with real-world dataset. Built interactive dashboards increasing stakeholder engagement by 60%. Performed EDA on 100K+ records identifying key business insights.</p>
+                        <div class="item-card-description"><ul><li>Completed live analytics project with real-world dataset.</li><li>Built interactive dashboards increasing stakeholder engagement by 60%.</li><li>Performed EDA on 100K+ records identifying key business insights.</li></ul></div>
                     </div>
-                    <div class="item-card">
+                     <div class="item-card">
                         <h3 class="item-card-title">Python Developer Intern</h3>
                         <p class="item-card-subtitle">The Website Makers - Oct 2023</p>
-                        <p class="item-card-description">Assisted in Building and Debugging Python Modules for Web Applications. Maintained and Updated Codebase for Client Projects. Gained Practical Experience in Python Scripting for Real-World Use Cases.</p>
+                        <div class="item-card-description"><ul><li>Assisted in Building and Debugging Python Modules for Web Applications.</li><li>Maintained and Updated Codebase for Client Projects.</li><li>Gained Practical Experience in Python Scripting for Real-World Use Cases.</li></ul></div>
                     </div>
                 </div>
             </section>
@@ -341,89 +357,98 @@
             <section class="section" id="skills">
                 <div class="clip-text"><h2 class="section-title">Core Technical Competencies</h2></div>
                 <div class="skills-grid">
-                    <div class="skill-category"><h3>Programming</h3><ul><li>Python</li><li>SQL</li><li>C++</li><li>C</li><li>HTML</li></ul></div>
+                    <div class="skill-category"><h3>Programming Languages</h3><ul><li>Python</li><li>SQL</li><li>C++</li><li>C</li><li>HTML</li></ul></div>
                     <div class="skill-category"><h3>Data Science & Analytics</h3><ul><li>NumPy, Pandas</li><li>Matplotlib, Seaborn</li><li>Scikit-learn</li><li>Jupyter Notebook</li></ul></div>
-                    <div class="skill-category"><h3>Business Intelligence</h3><ul><li>Power BI</li><li>Advanced Excel</li><li>Data Visualization</li><li>Dashboard Creation</li></ul></div>
+                    <div class="skill-category"><h3>Business Intelligence</h3><ul><li>Power BI</li><li>Excel (Advanced)</li><li>Data Visualization</li><li>Dashboard Creation</li></ul></div>
                     <div class="skill-category"><h3>Machine Learning</h3><ul><li>Supervised Learning</li><li>Classification, Regression</li><li>Model Evaluation</li><li>Feature Engineering</li></ul></div>
                     <div class="skill-category"><h3>Database Management</h3><ul><li>MySQL, PostgreSQL</li><li>CRUD Operations</li><li>Joins, Aggregations</li><li>Data Modeling</li></ul></div>
-                    <div class="skill-category"><h3>Development Tools</h3><ul><li>GitHub</li><li>VS Code</li><li>PyCharm</li><li>Docker (Basic)</li><li>Anaconda</li></ul></div>
+                    <div class="skill-category"><h3>Development Tools</h3><ul><li>GitHub</li><li>VS Code, PyCharm</li><li>Docker (Basic)</li><li>Anaconda, Google Colab</li></ul></div>
                 </div>
             </section>
 
             <section class="section" id="projects">
                 <div class="clip-text"><h2 class="section-title">Signature Projects</h2></div>
                 <div class="project-list">
-                    <div class="item-card">
+                     <div class="item-card">
                         <h3 class="item-card-title">Weed Detection in Soybean Plants</h3>
                         <p class="item-card-subtitle">Python, OpenCV, CNN, TensorFlow</p>
-                        <p class="item-card-description">Achieved 92% accuracy in crop vs. weed classification, reducing manual inspection time by 75% through a real-time detection system.</p>
+                        <p class="item-card-description">Achieved 92% accuracy in crop vs. weed classification, reducing manual inspection time by 75%.</p>
                     </div>
                     <div class="item-card">
                         <h3 class="item-card-title">Fake News Detection System</h3>
                         <p class="item-card-subtitle">Python, NLP, NLTK, Scikit-learn</p>
-                        <p class="item-card-description">Built an ML model with 88% accuracy on 20K+ articles. Implemented text preprocessing and a web interface for real-time verification.</p>
+                        <p class="item-card-description">Built an ML model with 88% accuracy on 20K+ articles for real-time verification.</p>
                     </div>
                     <div class="item-card">
                         <h3 class="item-card-title">Stock Price Prediction Model</h3>
                         <p class="item-card-subtitle">Python, LSTM, Time Series, Pandas</p>
-                        <p class="item-card-description">Developed a predictive model with 85% accuracy by analyzing 5+ years of historical stock data to generate actionable trading insights.</p>
+                        <p class="item-card-description">Developed a predictive model with 85% accuracy by analyzing 5+ years of historical stock data.</p>
                     </div>
                     <div class="item-card">
                         <h3 class="item-card-title">Preceptive Meds Model</h3>
                         <p class="item-card-subtitle">Python, Scikit-learn, Pandas, Random Forest</p>
-                        <p class="item-card-description">85%+ accuracy in flu medication & dosage prediction. Automated ML pipeline using genetic and clinical data. Reduced medication selection time with a dual-model system.</p>
+                        <p class="item-card-description">Achieved 85%+ accuracy in flu medication & dosage prediction using genetic and clinical data.</p>
                     </div>
                 </div>
             </section>
 
-            <section class="section" id="certifications">
-                <div class="clip-text"><h2 class="section-title">Certifications & Training</h2></div>
-                <div class="grid-container">
-                    <div class="item-card grid-item"><h3>Power BI Data Analyst Associate</h3><p>Microsoft (Prep)</p></div>
-                    <div class="item-card grid-item"><h3>Machine Learning Specialization</h3><p>Coursera / Stanford</p></div>
-                    <div class="item-card grid-item"><h3>SQL for Data Analysis</h3><p>Coursera</p></div>
-                    <div class="item-card grid-item"><h3>Python for Data Science</h3><p>Learn Tube</p></div>
+            <section class="section" id="education">
+                <div class="clip-text"><h2 class="section-title">Education</h2></div>
+                <div class="education-list">
+                    <div class="item-card">
+                        <h3 class="item-card-title">B.Tech Computer Science (AI Specialization)</h3>
+                        <p class="item-card-subtitle">Geetanjali Institute of Technical Studies, Udaipur (2023-2027)</p>
+                        <p class="item-card-description">CGPA: 8.92</p>
+                    </div>
+                     <div class="item-card">
+                        <h3 class="item-card-title">Senior Secondary (XII)</h3>
+                        <p class="item-card-subtitle">Sophia Sr. Sec. School, Bhilwara (2022)</p>
+                        <p class="item-card-description">Percentage: 77.67%</p>
+                    </div>
+                     <div class="item-card">
+                        <h3 class="item-card-title">Secondary (X)</h3>
+                        <p class="item-card-subtitle">Sophia Sr. Sec. School, Bhilwara (2020)</p>
+                        <p class="item-card-description">Percentage: 90.23%</p>
+                    </div>
                 </div>
             </section>
 
-             <section class="section" id="awards">
+            <section class="section" id="awards">
                 <div class="clip-text"><h2 class="section-title">Awards & Publications</h2></div>
                 <div class="grid-container">
-                    <div class="item-card grid-item"><h3>Research Publication - JETIR</h3><p>Published research on "Personalized Influenza Medication and Dosage Recommendations."</p></div>
+                    <div class="item-card grid-item"><h3>Research Publication - JETIR</h3><p>"Personalized Influenza Medication and Dosage Recommendations."</p></div>
                     <div class="item-card grid-item"><h3>IEEE Research Competition Finalist</h3><p>Presented an innovative healthcare AI solution.</p></div>
                     <div class="item-card grid-item"><h3>All India Rank 2393</h3><p>Top 5% among 50,000+ candidates in the Common Internship Test (CIT).</p></div>
-                    <div class="item-card grid-item"><h3>Head Scientific Volunteer</h3><p>Led a team of 15+ volunteers at a national exhibition for the Institute of Plasma Research.</p></div>
-                    <div class="item-card grid-item"><h3>Brand Ambassador</h3><p>Selected from 1000+ applications for Let's Upgrade.</p></div>
-                    <div class="item-card grid-item"><h3>70% Scholarship Winner</h3><p>Recognized for academic excellence in the RCAT Quiz-a-Thon.</p></div>
                 </div>
             </section>
+        </div>
+        
+        <section id="final-animation-section">
+            <canvas id="final-canvas"></canvas>
+            <div id="final-quote-1" class="final-quote">Create</div>
+            <div id="final-quote-2" class="final-quote">Disrupt</div>
+            <div id="final-quote-3" class="final-quote">Innovate</div>
+            <div id="final-quote-4" class="final-quote">Execute</div>
+        </section>
 
-            <section class="section" id="contact">
+        <div class="container">
+             <section class="section" id="contact">
                 <div class="clip-text"><h2 class="section-title">Get In Touch</h2></div>
                 <div class="contact-grid">
                     <div class="clip-text">
                         <a href="mailto:silky15585@gmail.com" class="contact-card">
-                            <div class="contact-icon">
-                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            </div>
                             <h3>Email</h3>
                             <p>silky15585@gmail.com</p>
                         </a>
                     </div>
                     <div class="clip-text">
                         <a href="https://github.com/hopessugar" target="_blank" class="contact-card">
-                            <div class="contact-icon">
-                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            </div>
                             <h3>GitHub</h3>
                             <p>@hopessugar</p>
                         </a>
                     </div>
                     <div class="clip-text">
                          <a href="tel:+919509610432" class="contact-card">
-                            <div class="contact-icon">
-                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            </div>
                             <h3>Phone</h3>
                             <p>+91 9509610432</p>
                         </a>
@@ -451,58 +476,84 @@
 
             // --- PRELOADER ---
             const preloader = document.getElementById('preloader');
-            const topPanel = document.querySelector('.preloader-panel.top');
-            const bottomPanel = document.querySelector('.preloader-panel.bottom');
-            const preloaderChars = document.querySelectorAll('.preloader-text-container .char');
+            const preloaderName = document.getElementById('preloader-name');
+            const preloaderQuote = document.getElementById('preloader-quote');
+            let preloaderAnimId;
+            let p_mesh;
 
-            const tl = gsap.timeline();
-
-            // Animate characters in from alternating directions
-            tl.fromTo(preloaderChars, 
-                { y: (i) => i % 2 === 0 ? '100%' : '-100%' },
-                { 
-                    y: '0%',
-                    stagger: 0.05,
-                    duration: 1,
-                    ease: 'power4.out'
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    if (preloaderAnimId) cancelAnimationFrame(preloaderAnimId);
+                    preloader.style.display = 'none';
+                    mainContent.style.visibility = 'visible';
+                    document.body.style.cursor = 'auto';
+                    initPage();
                 }
-            );
-
-            // Animate characters out to alternating directions
-            tl.to(preloaderChars, {
-                y: (i) => i % 2 === 0 ? '-100%' : '100%',
-                stagger: {
-                    each: 0.05,
-                    from: 'end'
-                },
-                duration: 1,
-                ease: 'power4.in'
-            }, "+=0.5");
-
-            // Animate panels away
-            tl.to(topPanel, { y: '-100%', duration: 1.2, ease: 'power4.inOut' });
-            tl.to(bottomPanel, { y: '100%', duration: 1.2, ease: 'power4.inOut' }, "<");
-
-            tl.eventCallback('onComplete', () => {
-                preloader.style.display = 'none';
-                mainContent.style.visibility = 'visible';
-                document.body.style.cursor = 'auto';
-                initPage();
             });
+
+            // --- PRELOADER 3D GRAPHIC ---
+            function initPreloader3D() {
+                const canvas = document.getElementById('preloader-canvas');
+                if (!canvas) return;
+                const p_scene = new THREE.Scene();
+                const p_camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+                p_camera.position.z = 5;
+                const p_renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+                p_renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+                const geometry = new THREE.IcosahedronGeometry(1.5, 1);
+                const material = new THREE.MeshBasicMaterial({ color: getComputedStyle(document.documentElement).getPropertyValue('--accent-color'), wireframe: true, transparent: true, opacity: 0 });
+                p_mesh = new THREE.Mesh(geometry, material);
+                p_scene.add(p_mesh);
+                
+                function animatePreloader3D() {
+                    preloaderAnimId = requestAnimationFrame(animatePreloader3D);
+                    if (p_mesh) {
+                        p_mesh.rotation.x += 0.002;
+                        p_mesh.rotation.y += 0.002;
+                    }
+                    if(p_renderer && p_scene && p_camera) p_renderer.render(p_scene, p_camera);
+                }
+                animatePreloader3D();
+
+                // Integrate with GSAP timeline
+                tl.to(p_mesh.material, { opacity: 0.3, duration: 1.5 }, 0);
+            }
+
+            initPreloader3D();
+            
+            tl.to(preloaderName, { opacity: 1, duration: 1.5, ease: 'power2.out' }, 0.5);
+            
+            const quoteText = "Think. Build. Evolve.";
+            let currentText = "";
+            let i = 0;
+            function typeWriter() {
+                if (i < quoteText.length) {
+                    currentText += quoteText.charAt(i);
+                    preloaderQuote.innerHTML = currentText;
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            tl.to(preloaderQuote, { opacity: 1, duration: 0.1, onComplete: typeWriter }, 1.0);
+            
+            tl.to([preloaderName, preloaderQuote], { opacity: 0, y: -20, duration: 1, ease: 'power2.in' }, "+=2");
+            tl.to(p_mesh.material, { opacity: 0, duration: 1 }, "<");
+            tl.to(preloader, { opacity: 0, duration: 1.5, ease: 'power4.inOut' }, "-=0.5");
+            
 
             function initPage() {
                 // --- SMOOTH SCROLL ---
                 const lenis = new Lenis();
                 gsap.ticker.add((time) => lenis.raf(time * 1000));
-
-                // --- GSAP & SCROLLTRIGGER ---
                 gsap.registerPlugin(ScrollTrigger);
 
                 // --- HERO ANIMATION ---
                 gsap.to('.hero-title .line', { y: '0%', duration: 1.5, ease: 'power4.out', stagger: 0.2, delay: 0.2 });
                 gsap.to('.hero-subtitle', { opacity: 1, y: 0, duration: 1, delay: 1 });
 
-                // --- SCROLL REVEAL (NO TILT) ---
+                // --- SCROLL REVEAL ---
                 document.querySelectorAll('.clip-text').forEach(el => {
                     gsap.fromTo(el.children, 
                         { y: '100%', opacity: 0 },
@@ -523,24 +574,62 @@
                     el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
                     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
                 });
+
+                // --- CARD HOVER EFFECT ---
+                document.querySelectorAll('.item-card, .contact-card').forEach(card => {
+                    card.addEventListener('mousemove', e => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        card.style.setProperty('--mouse-x', `${x}px`);
+                        card.style.setProperty('--mouse-y', `${y}px`);
+                    });
+                });
                 
-                // --- SOPHISTICATED 3D BACKGROUND ---
-                let scene, camera, renderer, mesh, light;
+                // --- NEW SUBTLE & DYNAMIC 3D BACKGROUND ---
+                let scene, camera, renderer, particleSystem, nebula;
                 let uniforms;
 
-                function initThree() {
+                function initBackground3D() {
                     const canvas = document.getElementById('three-canvas');
                     scene = new THREE.Scene();
                     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                    camera.position.z = 2.5;
+                    camera.position.z = 3;
                     renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
                     renderer.setSize(window.innerWidth, window.innerHeight);
 
-                    light = new THREE.PointLight(0xffffff, 0.5);
-                    light.position.set(0, 0, 5);
-                    scene.add(light);
+                    // --- Nebula Core ---
+                    const nebulaGeo = new THREE.SphereGeometry(1.2, 32, 32);
+                    const nebulaMat = new THREE.MeshBasicMaterial({
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--accent-color'),
+                        transparent: true,
+                        opacity: 0.15, // Slightly more visible core
+                        blending: THREE.AdditiveBlending
+                    });
+                    nebula = new THREE.Mesh(nebulaGeo, nebulaMat);
+                    scene.add(nebula);
 
-                    const geometry = new THREE.TorusKnotGeometry(0.8, 0.25, 200, 32);
+                    // --- Particle Field ---
+                    const particleCount = 10000;
+                    const positions = new Float32Array(particleCount * 3);
+                    const randoms = new Float32Array(particleCount);
+
+                    for (let i = 0; i < particleCount; i++) {
+                        const i3 = i * 3;
+                        const radius = 1.5 + Math.random() * 2;
+                        const phi = Math.random() * Math.PI * 2;
+                        const theta = Math.random() * Math.PI;
+                        
+                        positions[i3] = radius * Math.sin(theta) * Math.cos(phi);
+                        positions[i3 + 1] = radius * Math.sin(theta) * Math.sin(phi);
+                        positions[i3 + 2] = radius * Math.cos(theta);
+
+                        randoms[i] = Math.random();
+                    }
+
+                    const geometry = new THREE.BufferGeometry();
+                    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                    geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1));
 
                     uniforms = {
                         u_time: { value: 0.0 },
@@ -551,40 +640,46 @@
                         uniforms: uniforms,
                         vertexShader: `
                             uniform float u_time;
-                            varying vec3 v_normal;
-                            varying vec3 v_position;
-                            
+                            attribute float aRandom;
+                            varying float vRandom;
+
                             void main() {
-                                v_normal = normal;
-                                v_position = position;
-                                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                                vRandom = aRandom;
+                                vec3 pos = position;
+                                pos.y += sin(u_time * 0.5 + pos.x * 2.0) * aRandom * 0.1;
+                                pos.x += cos(u_time * 0.5 + pos.y * 2.0) * aRandom * 0.1;
+                                
+                                vec4 modelPosition = modelMatrix * vec4(pos, 1.0);
+                                vec4 viewPosition = viewMatrix * modelPosition;
+                                vec4 projectedPosition = projectionMatrix * viewPosition;
+
+                                gl_Position = projectedPosition;
+                                gl_PointSize = 2.5 * (1.0 / -viewPosition.z);
                             }
                         `,
                         fragmentShader: `
-                            uniform float u_time;
                             uniform vec3 u_accent;
-                            varying vec3 v_normal;
-                            varying vec3 v_position;
-                            
+                            varying float vRandom;
+
                             void main() {
-                                // Fresnel effect for glowing edges
-                                float fresnel = pow(1.0 + dot(v_normal, vec3(0.0, 0.0, -1.0)), 3.0);
+                                float strength = distance(gl_PointCoord, vec2(0.5));
+                                if (strength > 0.5) discard;
+
+                                vec3 color = vec3(0.2, 0.2, 0.3); // Darker base color
+                                if (vRandom > 0.9) { // More particles get accent color
+                                    color = u_accent;
+                                }
                                 
-                                // Base color
-                                vec3 base_color = vec3(0.02, 0.0, 0.05);
-                                
-                                // Final color with reduced brightness
-                                vec3 final_color = base_color + (u_accent * fresnel * 0.5);
-                                
-                                // Use fresnel to control alpha for a more subtle effect
-                                gl_FragColor = vec4(final_color, fresnel * 0.5);
+                                gl_FragColor = vec4(color, (1.0 - (strength * 2.0)) * 0.9); // Brighter alpha
                             }
                         `,
-                        transparent: true // Make material transparent
+                        transparent: true,
+                        blending: THREE.AdditiveBlending,
+                        depthWrite: false
                     });
 
-                    mesh = new THREE.Mesh(geometry, material);
-                    scene.add(mesh);
+                    particleSystem = new THREE.Points(geometry, material);
+                    scene.add(particleSystem);
 
                     window.addEventListener('resize', () => {
                         camera.aspect = window.innerWidth / window.innerHeight;
@@ -593,21 +688,113 @@
                     });
                 }
 
-                function animateThree() {
-                    requestAnimationFrame(animateThree);
-                    if(uniforms) uniforms.u_time.value += 0.01;
-                    
-                    if(mesh) {
-                        mesh.rotation.y += 0.001;
-                        mesh.rotation.x += 0.0005;
-                        mesh.rotation.z -= 0.0008;
-                    }
+                function animateBackground3D() {
+                    requestAnimationFrame(animateBackground3D);
+                    uniforms.u_time.value += 0.01;
+                    particleSystem.rotation.y += 0.0005;
+                    nebula.rotation.y -= 0.0003;
+                    camera.position.y = -lenis.scroll * 0.001;
+                    renderer.render(scene, camera);
+                }
+                
+                initBackground3D();
+                animateBackground3D();
 
-                    if(renderer && scene && camera) renderer.render(scene, camera);
+                // --- FINAL QUOTE ANIMATION ---
+                let finalScene, finalCamera, finalRenderer, finalParticleSystem, finalUniforms;
+
+                function initFinalAnimation3D() {
+                    const canvas = document.getElementById('final-canvas');
+                    if (!canvas) return;
+                    finalScene = new THREE.Scene();
+                    finalCamera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+                    finalCamera.position.z = 3;
+                    finalRenderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+                    finalRenderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                    
+                    const particleCount = 5000;
+                    const positions = new Float32Array(particleCount * 3);
+                    const randoms = new Float32Array(particleCount);
+                    for (let i = 0; i < particleCount; i++) {
+                        const i3 = i * 3;
+                        const radius = 1.5 + Math.random();
+                        const phi = Math.random() * Math.PI * 2;
+                        const theta = Math.random() * Math.PI;
+                        positions[i3] = radius * Math.sin(theta) * Math.cos(phi);
+                        positions[i3 + 1] = radius * Math.sin(theta) * Math.sin(phi);
+                        positions[i3 + 2] = radius * Math.cos(theta);
+                        randoms[i] = Math.random();
+                    }
+                    const geometry = new THREE.BufferGeometry();
+                    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                    geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1));
+                    finalUniforms = {
+                        u_time: { value: 0.0 },
+                        u_accent: { value: new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent-color')) }
+                    };
+                    const material = new THREE.ShaderMaterial({
+                        uniforms: finalUniforms,
+                        vertexShader: `
+                            uniform float u_time;
+                            attribute float aRandom;
+                            void main() {
+                                vec3 pos = position;
+                                pos.y += sin(u_time * 0.8 + pos.x * 2.0) * aRandom * 0.2;
+                                pos.x += cos(u_time * 0.8 + pos.y * 2.0) * aRandom * 0.2;
+                                vec4 viewPosition = viewMatrix * modelMatrix * vec4(pos, 1.0);
+                                gl_Position = projectionMatrix * viewPosition;
+                                gl_PointSize = 3.0 * (1.0 / -viewPosition.z);
+                            }
+                        `,
+                        fragmentShader: `
+                            uniform vec3 u_accent;
+                            void main() {
+                                float strength = distance(gl_PointCoord, vec2(0.5));
+                                if (strength > 0.5) discard;
+                                gl_FragColor = vec4(u_accent, (1.0 - (strength * 2.0)) * 0.9);
+                            }
+                        `,
+                        transparent: true,
+                        blending: THREE.AdditiveBlending,
+                        depthWrite: false
+                    });
+                    finalParticleSystem = new THREE.Points(geometry, material);
+                    finalScene.add(finalParticleSystem);
+
+                    window.addEventListener('resize', () => {
+                        finalCamera.aspect = canvas.clientWidth / canvas.clientHeight;
+                        finalCamera.updateProjectionMatrix();
+                        finalRenderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                    });
                 }
 
-                initThree();
-                animateThree();
+                function animateFinalAnimation3D() {
+                    requestAnimationFrame(animateFinalAnimation3D);
+                    if (finalUniforms) finalUniforms.u_time.value += 0.01;
+                    if (finalParticleSystem) finalParticleSystem.rotation.y += 0.001;
+                    if (finalRenderer) finalRenderer.render(finalScene, finalCamera);
+                }
+
+                initFinalAnimation3D();
+                animateFinalAnimation3D();
+
+                const finalTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#final-animation-section',
+                        start: 'top top',
+                        end: '+=400%', // 400% of viewport height
+                        scrub: true,
+                        pin: true,
+                    }
+                });
+
+                finalTl.to('#final-quote-1', { opacity: 1, scale: 1, duration: 1 });
+                finalTl.to('#final-quote-1', { opacity: 0, scale: 0.8, duration: 1 }, "+=1");
+                finalTl.to('#final-quote-2', { opacity: 1, scale: 1, duration: 1 });
+                finalTl.to('#final-quote-2', { opacity: 0, scale: 0.8, duration: 1 }, "+=1");
+                finalTl.to('#final-quote-3', { opacity: 1, scale: 1, duration: 1 });
+                finalTl.to('#final-quote-3', { opacity: 0, scale: 0.8, duration: 1 }, "+=1");
+                finalTl.to('#final-quote-4', { opacity: 1, scale: 1, duration: 1 });
             }
         });
     </script>
