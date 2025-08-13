@@ -212,6 +212,14 @@
         .item-card-description { font-size: 1.1rem; line-height: 1.7; position: relative; }
         .item-card-description ul { list-style-position: inside; padding-left: 1rem; }
         
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .grid-item h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--accent-glow); }
+        .grid-item p { color: var(--text-color); opacity: 0.7; }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -251,7 +259,7 @@
         }
         .final-quote {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 5vw;
+            font-size: 8vw; /* Increased font size */
             font-weight: 700;
             position: absolute;
             opacity: 0;
@@ -293,7 +301,7 @@
             .preloader-text { font-size: 5vw; }
             #preloader-name { font-size: 10vw; }
             #preloader-quote { font-size: 3vw; }
-            .final-quote { font-size: 8vw; }
+            .final-quote { font-size: 12vw; } /* Adjusted responsive size */
         }
     </style>
 </head>
@@ -328,9 +336,8 @@
                 <div class="clip-text"><h2 class="section-title">Professional Summary</h2></div>
                 <div class="clip-text">
                     <p class="summary-text">
-                        Ambitious and innovation-focused Computer Science student specializing in Artificial Intelligence, with a proven track record of delivering high-impact solutions through live projects, virtual internships, and independent research. Armed with expertise in Python, SQL, ML algorithms, and business intelligence tools like Power BI.
-                        I thrive at the intersection of data, code, and strategy. Known for rapid execution, analytical depth, and a builder’s mindset, I aim to create scalable AI-driven solutions that solve real-world problems. Actively seeking challenging roles that push boundaries and drive meaningful tech disruption.
-                 </p>
+                        Results-driven Computer Science Engineering student specializing in Artificial Intelligence with 2+ years of hands-on experience in machine learning, data analytics, and business intelligence. Proven track record through 3 virtual internships and 3 live projects with measurable impact. Expertise in Python, SQL, Power BI, and ML algorithms with strong analytical and problem-solving capabilities.
+                    </p>
                 </div>
             </section>
 
@@ -338,19 +345,40 @@
                 <div class="clip-text"><h2 class="section-title">Professional Experience</h2></div>
                 <div class="experience-list">
                     <div class="item-card">
-                        <h3 class="item-card-title">Machine Learning Intern</h3>
-                        <p class="item-card-subtitle">IBM SkillsBuild - Oct 2024</p>
-                        <div class="item-card-description"><ul><li>Implemented 5+ ML algorithms achieving 85%+ accuracy.</li><li>Developed data preprocessing pipelines reducing processing time by 40%.</li><li>Created automated model evaluation framework.</li></ul></div>
+                        <h3 class="item-card-title">Google Gemini — Campus Ambassador</h3>
+                        <p class="item-card-subtitle">Aug 2025 – Present</p>
+                        <div class="item-card-description"><ul><li>Represent Google Gemini at the campus level, promoting AI/ML learning initiatives.</li><li>Conducted awareness sessions and workshops for 200+ students on AI tools and applications.</li></ul></div>
                     </div>
                     <div class="item-card">
-                        <h3 class="item-card-title">Data Analytics Intern</h3>
-                        <p class="item-card-subtitle">Trainity - 8 Weeks</p>
-                        <div class="item-card-description"><ul><li>Completed live analytics project with real-world dataset.</li><li>Built interactive dashboards increasing stakeholder engagement by 60%.</li><li>Performed EDA on 100K+ records identifying key business insights.</li></ul></div>
+                        <h3 class="item-card-title">IBM SkillsBuild — Data Analysis Intern</h3>
+                        <p class="item-card-subtitle">Jun 2025 – Jul 2025</p>
+                        <div class="item-card-description"><ul><li>Performed exploratory data analysis (EDA) on large datasets, identifying key trends and patterns.</li><li>Built automated Excel and Power BI dashboards, reducing reporting time by 50%.</li></ul></div>
                     </div>
-                     <div class="item-card">
-                        <h3 class="item-card-title">Python Developer Intern</h3>
-                        <p class="item-card-subtitle">The Website Makers - Oct 2023</p>
-                        <div class="item-card-description"><ul><li>Assisted in Building and Debugging Python Modules for Web Applications.</li><li>Maintained and Updated Codebase for Client Projects.</li><li>Gained Practical Experience in Python Scripting for Real-World Use Cases.</li></ul></div>
+                    <div class="item-card">
+                        <h3 class="item-card-title">Trainity — Data Analytics Intern</h3>
+                        <p class="item-card-subtitle">Jan 2025 – Mar 2025</p>
+                        <div class="item-card-description"><ul><li>Completed a live analytics project with a real-world dataset.</li><li>Built interactive dashboards, increasing stakeholder engagement by 60%.</li><li>Performed EDA on 100K+ records, extracting actionable business insights.</li></ul></div>
+                    </div>
+                    <div class="item-card">
+                        <h3 class="item-card-title">IBM SkillsBuild — Machine Learning Intern</h3>
+                        <p class="item-card-subtitle">Oct 2024 – Dec 2024</p>
+                        <div class="item-card-description"><ul><li>Implemented 5+ ML algorithms achieving 85%+ accuracy.</li><li>Designed preprocessing pipelines, reducing data processing time by 40%.</li><li>Created automated model evaluation framework for consistent benchmarking.</li></ul></div>
+                    </div>
+                    <div class="item-card">
+                        <h3 class="item-card-title">The Website Makers — Python Developer Intern</h3>
+                        <p class="item-card-subtitle">Oct 2023 – Dec 2023</p>
+                        <div class="item-card-description"><ul><li>Assisted in building and debugging Python modules for web applications.</li><li>Maintained and updated codebases for client projects.</li><li>Developed automation scripts for real-world use cases.</li></ul></div>
+                    </div>
+                </div>
+                <div class="clip-text"><h2 class="section-title" style="margin-top: 100px; font-size: 2rem;">Open Source Contributions</h2></div>
+                <div class="experience-list">
+                    <div class="item-card">
+                        <h3 class="item-card-title">GSSoC (GirlScript Summer of Code)</h3>
+                        <p class="item-card-description">Contributor to KrishiMitra repository; implemented new features, optimized ML model performance, and improved documentation for agriculture-focused AI tools.</p>
+                    </div>
+                    <div class="item-card">
+                        <h3 class="item-card-title">OSCI (Open Source Connect India)</h3>
+                        <p class="item-card-description">Contributor in AI/ML-based projects, improving model accuracy and documentation for open-source repositories.</p>
                     </div>
                 </div>
             </section>
@@ -373,23 +401,43 @@
                      <div class="item-card">
                         <h3 class="item-card-title">Weed Detection in Soybean Plants</h3>
                         <p class="item-card-subtitle">Python, OpenCV, CNN, TensorFlow</p>
-                        <p class="item-card-description">Achieved 92% accuracy in crop vs. weed classification, reducing manual inspection time by 75%.</p>
+                        <div class="item-card-description"><ul><li>Achieved 92% accuracy in crop vs. weed classification.</li><li>Reduced manual inspection time by 75% through a real-time detection system.</li></ul></div>
+                    </div>
+                    <div class="item-card">
+                        <h3 class="item-card-title">AyurAI — AI-Powered Ayurveda Recommendation System</h3>
+                        <p class="item-card-subtitle">Python, NLP, Scikit-learn, TensorFlow</p>
+                        <div class="item-card-description"><ul><li>Developed ML model to provide personalized Ayurveda-based lifestyle and health recommendations.</li><li>Mapped user symptoms & habits to Ayurvedic treatments using NLP pipelines.</li><li>Achieved 87% accuracy against verified Ayurvedic guidelines.</li></ul></div>
                     </div>
                     <div class="item-card">
                         <h3 class="item-card-title">Fake News Detection System</h3>
                         <p class="item-card-subtitle">Python, NLP, NLTK, Scikit-learn</p>
-                        <p class="item-card-description">Built an ML model with 88% accuracy on 20K+ articles for real-time verification.</p>
+                        <div class="item-card-description"><ul><li>Built an ML model with 88% accuracy on 20K+ articles.</li><li>Designed preprocessing & feature extraction pipeline for clean NLP workflows.</li><li>Created a web interface for real-time news verification.</li></ul></div>
                     </div>
                     <div class="item-card">
                         <h3 class="item-card-title">Stock Price Prediction Model</h3>
                         <p class="item-card-subtitle">Python, LSTM, Time Series, Pandas</p>
-                        <p class="item-card-description">Developed a predictive model with 85% accuracy by analyzing 5+ years of historical stock data.</p>
+                        <div class="item-card-description"><ul><li>Developed predictive model with 85% accuracy.</li><li>Analyzed 5+ years of historical stock market data.</li><li>Produced actionable short-term trading insights.</li></ul></div>
                     </div>
                     <div class="item-card">
                         <h3 class="item-card-title">Preceptive Meds Model</h3>
-                        <p class="item-card-subtitle">Python, Scikit-learn, Pandas, Random Forest</p>
-                        <p class="item-card-description">Achieved 85%+ accuracy in flu medication & dosage prediction using genetic and clinical data.</p>
+                        <p class="item-card-subtitle">Python, Scikit-learn, Pandas, RandomForest</p>
+                        <div class="item-card-description"><ul><li>Achieved 85%+ accuracy in flu medication & dosage prediction.</li><li>Automated ML pipeline using genetic and clinical datasets.</li><li>Reduced medication selection time using dual-model approach (classification + regression).</li></ul></div>
                     </div>
+                </div>
+            </section>
+
+            <section class="section" id="certifications">
+                <div class="clip-text"><h2 class="section-title">Certifications & Training</h2></div>
+                <div class="grid-container">
+                    <div class="item-card grid-item"><h3>Red Hat Certified System Administrator (RHCSA)</h3><p>Score: 300/300, Red Hat, 2025.</p></div>
+                    <div class="item-card grid-item"><h3>Career Essentials in Generative AI</h3><p>Microsoft, 2025.</p></div>
+                    <div class="item-card grid-item"><h3>Machine Learning Specialization</h3><p>Coursera / Stanford University, 2025.</p></div>
+                    <div class="item-card grid-item"><h3>AI/ML Hackathon Workshops</h3><p>Google Gemini Campus Programs, 2025.</p></div>
+                    <div class="item-card grid-item"><h3>Power BI</h3><p>Pwc, 2024</p></div>
+                    <div class="item-card grid-item"><h3>Data Analytics and Visualization</h3><p>Accenture, 2024.</p></div>
+                    <div class="item-card grid-item"><h3>Python for Data Science</h3><p>LearnTube, 2024.</p></div>
+                    <div class="item-card grid-item"><h3>Data Visualization: Empowering Business with Effective Insights</h3><p>TATA, 2024.</p></div>
+                    
                 </div>
             </section>
 
