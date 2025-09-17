@@ -212,11 +212,18 @@
         .item-card-description { font-size: 1.1rem; line-height: 1.7; position: relative; }
         .item-card-description ul { list-style-position: inside; padding-left: 1rem; }
         
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+        
+        .grid-container,
+        .education-list {
+               margin: 0 auto;         /* centers the content */
+              padding: 0 40px;        /* <-- adds left & right space */
+              max-width: 1200px;      /* optional: keeps content from going too wide */
+            box-sizing: border-box; /* ensures padding doesn’t break layout */
+            }
+        .item-card {
+             margin: 10px;
+            padding: 20px;
+            }
         .grid-item h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--accent-glow); }
         .grid-item p { color: var(--text-color); opacity: 0.7; }
 
@@ -413,86 +420,79 @@
                </div>
               </a>
 
-  <div class="item-card">
+    <div class="item-card">
     <h3 class="item-card-title">Zepto Dashboard</h3>
-    <p class="item-card-subtitle">Power BI, Data Analysis, Visualization, Data Cleaning, SQL, DAX</p>
-    <div class="item-card-description">
-      <ul>
-        <li>Designed an interactive Power BI dashboard to track Zepto’s sales, delivery, and customer engagement metrics.</li>
-        <li>Performed data cleaning and transformation using Power Query and SQL for accurate reporting.</li>
-        <li>Implemented DAX measures and KPIs for actionable insights and business decision-making.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="item-card">
-    <h3 class="item-card-title">IBM Attrition Analysis Dashboard</h3>
-    <p class="item-card-subtitle">Power BI, Data Analytics, SQL, DAX</p>
-    <div class="item-card-description">
-      <ul>
-        <li>Developed a Power BI dashboard to analyze employee attrition trends and workforce retention metrics.</li>
-        <li>Cleaned and modeled HR datasets with Power Query and SQL to ensure accurate insights.</li>
-        <li>Created interactive visuals and DAX measures to highlight key factors driving attrition.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="item-card">
-    <h3 class="item-card-title">AyurAI — AI-Powered Ayurveda Recommendation System</h3>
-    <p class="item-card-subtitle">Python, NLP, Scikit-learn, TensorFlow</p>
-    <div class="item-card-description">
-      <ul>
-        <li>Developed ML model to provide personalized Ayurveda-based lifestyle and health recommendations.</li>
-        <li>Mapped user symptoms & habits to Ayurvedic treatments using NLP pipelines.</li>
-        <li>Achieved 87% accuracy against verified Ayurvedic guidelines.</li>
-      </ul>
-    </div>
-  </div>
-
-  <a href="https://github.com/hopessugar/fake_news_detection" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="item-card">
-      <h3 class="item-card-title">Fake News Detection System</h3>
-      <p class="item-card-subtitle">Python, NLP, NLTK, Scikit-learn</p>
+     <p class="item-card-subtitle">Power BI, Data Analysis, Visualization, Data Cleaning, SQL, DAX</p>
+       <div class="item-card-description">
+        <ul>
+           <li>Designed an interactive Power BI dashboard to track Zepto’s sales, delivery, and customer engagement metrics.</li>
+           <li>Performed data cleaning and transformation using Power Query and SQL for accurate reporting.</li>
+           <li>Implemented DAX measures and KPIs for actionable insights and business decision-making.</li>
+         </ul>
+       </div>
+     </div>
+     <div class="item-card">
+      <h3 class="item-card-title">IBM Attrition Analysis Dashboard</h3>
+      <p class="item-card-subtitle">Power BI, Data Analytics, SQL, DAX</p>
       <div class="item-card-description">
         <ul>
-          <li>Built an ML model with 88% accuracy on 20K+ articles.</li>
-          <li>Designed preprocessing & feature extraction pipeline for clean NLP workflows.</li>
-          <li>Created a web interface for real-time news verification.</li>
-        </ul>
+          <li>Developed a Power BI dashboard to analyze employee attrition trends and workforce retention metrics.</li>
+          <li>Cleaned and modeled HR datasets with Power Query and SQL to ensure accurate insights.</li>
+           <li>Created interactive visuals and DAX measures to highlight key factors driving attrition.</li>
+         </ul>
+       </div>
+     </div>
+     <div class="item-card">
+        <h3 class="item-card-title">AyurAI — AI-Powered Ayurveda Recommendation System</h3>
+        <p class="item-card-subtitle">Python, NLP, Scikit-learn, TensorFlow</p>
+         <div class="item-card-description">
+         <ul>
+           <li>Developed ML model to provide personalized Ayurveda-based lifestyle and health recommendations.</li>
+           <li>Mapped user symptoms & habits to Ayurvedic treatments using NLP pipelines.</li>
+           <li>Achieved 87% accuracy against verified Ayurvedic guidelines.</li>
+         </ul>
+       </div>
+     </div>
+    <a href="https://github.com/hopessugar/fake_news_detection" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="item-card">
+        <h3 class="item-card-title">Fake News Detection System</h3>
+        <p class="item-card-subtitle">Python, NLP, NLTK, Scikit-learn</p>
+         <div class="item-card-description">
+          <ul>
+            <li>Built an ML model with 88% accuracy on 20K+ articles.</li>
+            <li>Designed preprocessing & feature extraction pipeline for clean NLP workflows.</li>
+            <li>Created a web interface for real-time news verification.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </a>
-
-  <a href="https://github.com/Ansikka/KrishiMitra.py" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="item-card">
-      <h3 class="item-card-title">KrishiMitra</h3>
-      <p class="item-card-subtitle">HTML, CSS, JavaScript, API integrations</p>
-      <div class="item-card-description">
-        <ul>
-          <li>Contributed to the KrishiMitra platform under GSSoC, aimed at supporting farmers with smart agricultural solutions.</li>
-          <li>Implemented new features and optimized existing codebase for better performance and scalability.</li>
-          <li>Collaborated with a distributed team using Git/GitHub for version control and open-source best practices.</li>
-        </ul>
-      </div>
-    </div>
-  </a>
-
-  <a href="https://github.com/hopessugar/Prespective_meds" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="item-card">
-      <h3 class="item-card-title">Preceptive Meds Model</h3>
-      <p class="item-card-subtitle">Python, Scikit-learn, Pandas, RandomForest</p>
-      <div class="item-card-description">
-        <ul>
-          <li>Achieved 85%+ accuracy in flu medication & dosage prediction.</li>
-          <li>Automated ML pipeline using genetic and clinical datasets.</li>
-          <li>Reduced medication selection time using dual-model approach (classification + regression).</li>
-        </ul>
-      </div>
-    </div>
-  </a>
-
-</div>
-
+    </a>
+    <a href="https://github.com/Ansikka/KrishiMitra.py" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="item-card">
+        <h3 class="item-card-title">KrishiMitra</h3>
+         <p class="item-card-subtitle">HTML, CSS, JavaScript, API integrations</p>
+          <div class="item-card-description">
+            <ul>
+             <li>Contributed to the KrishiMitra platform under GSSoC, aimed at supporting farmers with smart agricultural solutions.</li>
+             <li>Implemented new features and optimized existing codebase for better performance and scalability.</li>
+             <li>Collaborated with a distributed team using Git/GitHub for version control and open-source best practices.</li>
+           </ul>
+         </div>
+       </div>
+      </a>
+      <a href="https://github.com/hopessugar/Prespective_meds" target="_blank" style="text-decoration: none; color: inherit;">
+         <div class="item-card">
+            <h3 class="item-card-title">Preceptive Meds Model</h3>
+              <p class="item-card-subtitle">Python, Scikit-learn, Pandas, RandomForest</p>
+                 <div class="item-card-description">
+                    <ul>
+                      <li>Achieved 85%+ accuracy in flu medication & dosage prediction.</li>
+                      <li>Automated ML pipeline using genetic and clinical datasets.</li>
+                      <li>Reduced medication selection time using dual-model approach (classification + regression).</li>
+                     </ul>
+                    </div>
+                   </div>
+                  </a>
+                 </div>
                 </div>
             </section>
 
