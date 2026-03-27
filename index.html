@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silky Vyas - Data Analyst | Front End Developer </title>
+    <title>Silky Vyas - AI Researcher | Machine Learning Engineer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
@@ -36,8 +36,8 @@
         /* --- Custom Cursor --- */
         #cursor {
             position: fixed;
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             border: 1px solid var(--cursor-color);
             border-radius: 50%;
             pointer-events: none;
@@ -126,8 +126,31 @@
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+        .menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .menu a:hover {
+            color: var(--accent-glow);
+        }
+        .logo {
+            font-weight: 700;
+            color: var(--accent-glow);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
         .hero {
-            height: 100vh;
+            padding-top: 15vh;
+            padding-bottom: 2vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -135,33 +158,34 @@
             text-align: center;
         }
         .hero-title {
-            font-size: 8vw;
+            font-size: 4vw;
             font-weight: 700;
-            line-height: 1;
+            line-height: 1.1;
             color: var(--text-color);
         }
         .line-wrapper {
             overflow: hidden;
-            height: 8.8vw;
+            height: auto;
+            padding-bottom: 5px;
         }
         .hero-title .line {
             display: block;
             transform: translateY(100%);
         }
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 400;
             color: var(--accent-glow);
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             opacity: 0;
         }
         .section {
-            padding: 150px 0;
+            padding: 30px 0;
         }
         .section-title {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 4rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             color: var(--text-color);
             text-transform: uppercase;
@@ -175,12 +199,15 @@
             opacity: 0;
         }
         .summary-text {
-            font-size: 1.5rem;
-            line-height: 1.6;
-            max-width: 800px;
+            font-size: 1.15rem;
+            line-height: 1.5;
+            max-width: 950px;
             margin: 0 auto;
             text-align: center;
             color: var(--text-color);
+        }
+        #summary {
+            margin-bottom: 25vh;
         }
         .item-card {
             padding: 2rem;
@@ -206,6 +233,9 @@
         }
         .item-card:hover::before {
             opacity: 1;
+        }
+        .item-card:hover {
+            transform: translateY(-10px) scale(1.03);
         }
         .item-card-title { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: var(--accent-glow); position: relative; }
         .item-card-subtitle { color: var(--text-color); opacity: 0.7; margin-bottom: 1.5rem; font-weight: 400; position: relative; }
@@ -326,67 +356,65 @@
     <canvas id="three-canvas"></canvas>
     <header class="header">
         <div class="logo">Silky Vyas</div>
-        <div class="menu"></div>
+        <nav class="menu">
+            <a href="#summary">Summary</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
     <main id="main-content">
         <section class="hero">
             <h1 class="hero-title">
-                <div class="line-wrapper"><span class="line">Data Analyst & Scientist</span></div>
-                <div class="line-wrapper"><span class="line">Frontend Developer</span></div>
-                <div class="line-wrapper"><span class="line">System Administrator</span></div>
+                <div class="line-wrapper"><span class="line">AI/ML Learning Engineer </span></div>
+                <div class="line-wrapper"><span class="line">Data Scientist</span></div>
+                <div class="line-wrapper"><span class="line">Prompt Engineer </span></div>
             </h1>
-            <p class="hero-subtitle">Building intelligent solutions with data.</p>
+            <p class="hero-subtitle">Building intelligent solutions directly driving real-world impact.</p>
         </section>
 
         <div class="container">
             <section class="section" id="summary">
-                <div class="clip-text"><h2 class="section-title">Professional Summary</h2></div>
+                <div class="clip-text"><h2 class="section-title">Summary</h2></div>
                 <div class="clip-text">
                     <p class="summary-text">
-                        Results-driven Computer Science Engineering student specializing in Artificial Intelligence with hands-on experience in machine learning, data analytics, business intelligence, system Administration and frontend Developement. Proven track record through virtual internships and live projects with measurable impact. Expertise in Python, SQL, Power BI, HTML, CSS, JavaScript and ML algorithms with strong analytical and problem-solving capabilities.
+                        Third-year B.Tech AI student (CGPA 9.42) with a strong interest in machine learning research and a track record of building beyond academic requirements. Experience includes research on clinical LLM hallucination detection in Australia, deployment of a crop disease model with farmers in Rajasthan, and development of data pipelines used by industry teams. Currently seeking AI/ML research internships to continue learning, contribute effectively, and work on impactful problems.
                     </p>
                 </div>
             </section>
 
             <section class="section" id="experience">
-                <div class="clip-text"><h2 class="section-title">Professional Experience</h2></div>
+                <div class="clip-text"><h2 class="section-title">Experience</h2></div>
                 <div class="experience-list">
                     <div class="item-card">
-                        <h3 class="item-card-title">Google Gemini — Campus Ambassador</h3>
-                        <p class="item-card-subtitle">Aug 2025 – Present</p>
-                        <div class="item-card-description"><ul><li>Represent Google Gemini at the campus level, promoting AI/ML learning initiatives.</li><li>Conducted awareness sessions and workshops for 200+ students on AI tools and applications.</li></ul></div>
+                        <h3 class="item-card-title">Tech Adaptive Pandit Pty Ltd — AI Research Intern</h3>
+                        <p class="item-card-subtitle">Jan 2026 – Feb 2026 | Australia</p>
+                        <div class="item-card-description"><ul><li>Benchmarked BERT vs. GPT-2 on clinical hallucination detection; preliminary results show ~31% higher hallucination rate in generative vs. discriminative models on MedQA.</li><li>Built LangChain self-correction agentic workflow for MedLipi pipelines, cutting erroneous output from ~18% to &lt;2%; findings targeted for peer-reviewed publication Q3 2026.</li></ul></div>
                     </div>
                     <div class="item-card">
-                        <h3 class="item-card-title">IBM SkillsBuild — Data Analysis Intern</h3>
-                        <p class="item-card-subtitle">Jun 2025 – Jul 2025</p>
-                        <div class="item-card-description"><ul><li>Performed exploratory data analysis (EDA) on large datasets, identifying key trends and patterns.</li><li>Built automated Excel and Power BI dashboards, reducing reporting time by 50%.</li></ul></div>
+                        <h3 class="item-card-title">Google — Gemini Campus Ambassador Lead</h3>
+                        <p class="item-card-subtitle">Aug 2025 – Feb 2026 | India</p>
+                        <div class="item-card-description"><ul><li>Delivered 6+ GenAI & Prompt Engineering workshops to 200+ students.</li><li>Recorded a 78% improvement in post-workshop tool-adoption scores.</li></ul></div>
                     </div>
                     <div class="item-card">
-                        <h3 class="item-card-title">Trainity — Data Analytics Intern</h3>
-                        <p class="item-card-subtitle">Jan 2025 – Mar 2025</p>
-                        <div class="item-card-description"><ul><li>Completed a live analytics project with a real-world dataset.</li><li>Built interactive dashboards, increasing stakeholder engagement by 60%.</li><li>Performed EDA on 100K+ records, extracting actionable business insights.</li></ul></div>
+                        <h3 class="item-card-title">IBM SkillsBuild — Data Analytics Intern</h3>
+                        <p class="item-card-subtitle">Jun 2025 – Jul 2025 | India</p>
+                        <div class="item-card-description"><ul><li>Built Power BI dashboards automating reporting across 3 business units, recovering ~6 hrs/week per team.</li><li>Surfaced 4 actionable insights from 50,000+ row dataset adopted for strategic planning.</li></ul></div>
                     </div>
                     <div class="item-card">
                         <h3 class="item-card-title">IBM SkillsBuild — Machine Learning Intern</h3>
-                        <p class="item-card-subtitle">Oct 2024 – Dec 2024</p>
-                        <div class="item-card-description"><ul><li>Implemented 5+ ML algorithms achieving 85%+ accuracy.</li><li>Designed preprocessing pipelines, reducing data processing time by 40%.</li><li>Created automated model evaluation framework for consistent benchmarking.</li></ul></div>
-                    </div>
-                    <div class="item-card">
-                        <h3 class="item-card-title">The Website Makers — Python Developer Intern</h3>
-                        <p class="item-card-subtitle">Oct 2023 – Dec 2023</p>
-                        <div class="item-card-description"><ul><li>Assisted in building and debugging Python modules for web applications.</li><li>Maintained and updated codebases for client projects.</li><li>Developed automation scripts for real-world use cases.</li></ul></div>
+                        <p class="item-card-subtitle">Oct 2024 – Nov 2024 | India</p>
+                        <div class="item-card-description"><ul><li>Tuned 5+ ML algorithms on healthcare dataset (~12,000 rows) achieving >85% F1-score — 11 pp above baseline.</li><li>Automated eval scripts cut manual processing by ~40%.</li></ul></div>
                     </div>
                 </div>
                 <div class="clip-text"><h2 class="section-title" style="margin-top: 100px; font-size: 2rem;">Open Source Contributions</h2></div>
                 <div class="experience-list">
                     <div class="item-card">
-                        <h3 class="item-card-title">GSSoC (GirlScript Summer of Code)</h3>
-                        <p class="item-card-description">Contributor to KrishiMitra repository; implemented new features, optimized ML model performance, and improved documentation for agriculture-focused AI tools.</p>
-                    </div>
-                    <div class="item-card">
-                        <h3 class="item-card-title">OSCI (Open Source Connect India)</h3>
-                        <p class="item-card-description">Contributor in AI/ML-based projects, improving model accuracy and documentation for open-source repositories.</p>
+                        <h3 class="item-card-title">GirlScript Summer of Code — ML Contributor</h3>
+                        <p class="item-card-subtitle">Jul 2024 | Remote</p>
+                        <div class="item-card-description"><ul><li>Optimised PyTorch DataLoader pipelines in AgriTech models, reducing batch inference 20% (4.8 s &rarr; 3.9 s).</li><li>4 PRs merged across 2 repos within a 2-week window.</li></ul></div>
                     </div>
                 </div>
             </section>
@@ -394,120 +422,79 @@
             <section class="section" id="skills">
                 <div class="clip-text"><h2 class="section-title">Core Technical Competencies</h2></div>
                 <div class="skills-grid">
-                    <div class="skill-category"><h3>Programming Languages</h3><ul><li>Python</li><li>Linux</li><li>SQL</li><li>C++</li><li>C</li></ul></div>
-                    <div class="skill-category"><h3>Data Science & Analytics</h3><ul><li>NumPy, Pandas</li><li>Matplotlib, Seaborn</li><li>Scikit-learn</li><li>Jupyter Notebook</li></ul></div>
-                    <div class="skill-category"><h3>AI Tools</h3><ul><li>ChatGPT</li><li>Google Gemini</li><li>Claude AI</li><li>Grok</li><li> Vertex AI</li></ul></div>
-                    <div class="skill-category"><h3>Business Intelligence</h3><ul><li>Power BI</li><li>Excel (Advanced)</li><li>Data Visualization</li><li>Dashboard Creation</li></ul></div>
-                    <div class="skill-category"><h3>Machine Learning</h3><ul><li>Supervised Learning</li><li>Classification, Regression</li><li>Model Evaluation</li><li>Feature Engineering</li></ul></div>
-                    <div class="skill-category"><h3>Frontend Tools</h3><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Figma</li></ul></div>
-                    <div class="skill-category"><h3>Development Tools</h3><ul><li>GitHub</li><li>VS Code, PyCharm</li><li>Docker (Basic)</li><li>Anaconda, Google Colab</li></ul></div>
+                    <div class="skill-category"><h3>Deep Learning & ML</h3><ul><li>PyTorch & TensorFlow</li><li>BERT & Transformers</li><li>CNNs & RNN/LSTM</li><li>XGBoost & Scikit-learn</li></ul></div>
+                    <div class="skill-category"><h3>LLMs & Gen AI</h3><ul><li>GPT-2, BERT, Gemini</li><li>RAG Pipelines</li><li>Hallucination Detection</li><li>Model Fine-Tuning</li></ul></div>
+                    <div class="skill-category"><h3>Prompt Engineering</h3><ul><li>Zero-Shot & Few-Shot</li><li>Chain of Thought (CoT)</li><li>Agentic Workflows (LangChain)</li><li>Prompt Optimization</li><li>Context Window Tuning</li></ul></div>
+                    <div class="skill-category"><h3>Computer Vision</h3><ul><li>OpenCV</li><li>Object Detection</li><li>Image Classification</li></ul></div>
+                    <div class="skill-category"><h3>Data & BI</h3><ul><li>Power BI (DAX, Power Query)</li><li>SQL, Pandas, NumPy</li><li>Advanced Excel, EDA</li></ul></div>
+                    <div class="skill-category"><h3>Infrastructure & Dev</h3><ul><li>Docker, Git/GitHub</li><li>Linux, RHCSA</li><li>HTML, CSS</li></ul></div>
                 </div>
             </section>
 
            <section class="section" id="projects">
                 <div class="clip-text"><h2 class="section-title">Signature Projects</h2></div>
                 <div class="project-list">
-                  <a href="https://github.com/hopessugar/weed_detection" target="_blank" style="text-decoration: none; color: inherit;">
+                  <a href="https://github.com/hopessugar/KrishiMitra.py" target="_blank" style="text-decoration: none; color: inherit;">
                   <div class="item-card">
-                    <h3 class="item-card-title">Weed Detection in Soybean Plants</h3>
-                    <p class="item-card-subtitle">Python, OpenCV, CNN, TensorFlow</p>
+                    <h3 class="item-card-title">Krishi Mitra - AI Agricultural Assistant</h3>
+                    <p class="item-card-subtitle">Python, LangChain, OpenCV</p>
                  <div class="item-card-description">
                    <ul>
-                    <li>Achieved 92% accuracy in crop vs. weed classification.</li>
-                    <li>Reduced manual inspection time by 75% through a real-time detection system.</li>
+                    <li>92.4% validation accuracy on 54,000-image crop-disease dataset (38 classes).</li>
+                    <li>RAG pipeline via LangChain + Gemini API for multilingual advisory.</li>
+                    <li>Piloted with 80+ farming households in Rajasthan.</li>
                    </ul>
                  </div>
                </div>
               </a>
 
-    <div class="item-card">
-    <h3 class="item-card-title">Zepto Dashboard</h3>
-     <p class="item-card-subtitle">Power BI, Data Analysis, Visualization, Data Cleaning, SQL, DAX</p>
-       <div class="item-card-description">
-        <ul>
-           <li>Designed an interactive Power BI dashboard to track Zepto’s sales, delivery, and customer engagement metrics.</li>
-           <li>Performed data cleaning and transformation using Power Query and SQL for accurate reporting.</li>
-           <li>Implemented DAX measures and KPIs for actionable insights and business decision-making.</li>
-         </ul>
-       </div>
-     </div>
-     <div class="item-card">
-      <h3 class="item-card-title">IBM Attrition Analysis Dashboard</h3>
-      <p class="item-card-subtitle">Power BI, Data Analytics, SQL, DAX</p>
-      <div class="item-card-description">
-        <ul>
-          <li>Developed a Power BI dashboard to analyze employee attrition trends and workforce retention metrics.</li>
-          <li>Cleaned and modeled HR datasets with Power Query and SQL to ensure accurate insights.</li>
-           <li>Created interactive visuals and DAX measures to highlight key factors driving attrition.</li>
-         </ul>
-       </div>
-     </div>
-     <div class="item-card">
-        <h3 class="item-card-title">AyurAI — AI-Powered Ayurveda Recommendation System</h3>
-        <p class="item-card-subtitle">Python, NLP, Scikit-learn, TensorFlow</p>
-         <div class="item-card-description">
-         <ul>
-           <li>Developed ML model to provide personalized Ayurveda-based lifestyle and health recommendations.</li>
-           <li>Mapped user symptoms & habits to Ayurvedic treatments using NLP pipelines.</li>
-           <li>Achieved 87% accuracy against verified Ayurvedic guidelines.</li>
-         </ul>
-       </div>
-     </div>
-    <a href="https://github.com/hopessugar/fake_news_detection" target="_blank" style="text-decoration: none; color: inherit;">
-      <div class="item-card">
-        <h3 class="item-card-title">Fake News Detection System</h3>
-        <p class="item-card-subtitle">Python, NLP, NLTK, Scikit-learn</p>
-         <div class="item-card-description">
-          <ul>
-            <li>Built an ML model with 88% accuracy on 20K+ articles.</li>
-            <li>Designed preprocessing & feature extraction pipeline for clean NLP workflows.</li>
-            <li>Created a web interface for real-time news verification.</li>
-          </ul>
-        </div>
-      </div>
-    </a>
-    <a href="https://github.com/Ansikka/KrishiMitra.py" target="_blank" style="text-decoration: none; color: inherit;">
-      <div class="item-card">
-        <h3 class="item-card-title">KrishiMitra</h3>
-         <p class="item-card-subtitle">HTML, CSS, JavaScript, API integrations</p>
-          <div class="item-card-description">
-            <ul>
-             <li>Contributed to the KrishiMitra platform under GSSoC, aimed at supporting farmers with smart agricultural solutions.</li>
-             <li>Implemented new features and optimized existing codebase for better performance and scalability.</li>
-             <li>Collaborated with a distributed team using Git/GitHub for version control and open-source best practices.</li>
-           </ul>
-         </div>
-       </div>
-      </a>
-      <a href="https://github.com/hopessugar/Prespective_meds" target="_blank" style="text-decoration: none; color: inherit;">
-         <div class="item-card">
-            <h3 class="item-card-title">Preceptive Meds Model</h3>
-              <p class="item-card-subtitle">Python, Scikit-learn, Pandas, RandomForest</p>
+              <a href="https://github.com/hopessugar/vedaverse" target="_blank" style="text-decoration: none; color: inherit;">
+              <div class="item-card">
+                <h3 class="item-card-title">Vedaverse - Multi-Agent Ayurvedic Wellness Platform</h3>
+                <p class="item-card-subtitle">Gemini API, LangChain</p>
                  <div class="item-card-description">
+                 <ul>
+                   <li>Multi-agent LangChain + Gemini 1.5 Pro pipeline generating personalised health plans.</li>
+                   <li>&lt;3% hallucination rate, end-to-end latency &lt;2.1 s per round trip.</li>
+                 </ul>
+               </div>
+             </div>
+             </a>
+
+             <a href="https://github.com/hopessugar/weed_detection" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="item-card">
+                  <h3 class="item-card-title">Automated Weed Detection</h3>
+                  <p class="item-card-subtitle">MobileNetV2, TensorFlow, OpenCV</p>
+                   <div class="item-card-description">
                     <ul>
-                      <li>Achieved 85%+ accuracy in flu medication & dosage prediction.</li>
-                      <li>Automated ML pipeline using genetic and clinical datasets.</li>
-                      <li>Reduced medication selection time using dual-model approach (classification + regression).</li>
-                     </ul>
-                    </div>
-                   </div>
-                  </a>
-                 </div>
+                      <li>89% test accuracy on 15,000+ soybean field images (4 classes) after OpenCV augmentation.</li>
+                    </ul>
+                  </div>
                 </div>
+              </a>
+
+              <div class="item-card">
+              <h3 class="item-card-title">Power BI Dashboards</h3>
+               <p class="item-card-subtitle">Power BI, SQL, DAX</p>
+                 <div class="item-card-description">
+                  <ul>
+                     <li>Zepto e-commerce ops (10+ KPIs) and HR Attrition Matrix (5+ risk categories).</li>
+                     <li>Both adopted as primary stakeholder reference views.</li>
+                   </ul>
+                 </div>
+               </div>
+                 </div>
             </section>
 
             <section class="section" id="certifications">
                 <div class="clip-text"><h2 class="section-title">Certifications & Training</h2></div>
                 <div class="grid-container">
-                    <div class="item-card grid-item"><h3>Red Hat Certified System Administrator (RHCSA)</h3><p>Score: 300/300, Red Hat, 2025.</p></div>
-                    <div class="item-card grid-item"><h3>Career Essentials in Generative AI</h3><p>Microsoft, 2025.</p></div>
-                    <div class="item-card grid-item"><h3>Machine Learning Specialization</h3><p>Coursera / Stanford University, 2025.</p></div>
-                    <div class="item-card grid-item"><h3>AI/ML Hackathon Workshops</h3><p>Google Gemini Campus Programs, 2025.</p></div>
-                    <div class="item-card grid-item"><h3>Power BI</h3><p>Pwc, 2024</p></div>
-                    <div class="item-card grid-item"><h3>Data Analytics and Visualization</h3><p>Accenture, 2024.</p></div>
-                    <div class="item-card grid-item"><h3>Python for Data Science</h3><p>LearnTube, 2024.</p></div>
-                    <div class="item-card grid-item"><h3>Data Visualization: Empowering Business with Effective Insights</h3><p>TATA, 2024.</p></div>
-                    
+                    <div class="item-card grid-item"><h3>RHCSA</h3><p>Red Hat (2025)</p></div>
+                    <div class="item-card grid-item"><h3>Machine Learning Specialization</h3><p>Stanford / DeepLearning.AI</p></div>
+                    <div class="item-card grid-item"><h3>Power BI</h3><p>PwC (2024)</p></div>
+                    <div class="item-card grid-item"><h3>Data Analytics</h3><p>Accenture</p></div>
+                    <div class="item-card grid-item"><h3>Data Visualization</h3><p>TATA (2024)</p></div>
+                    <div class="item-card grid-item"><h3>Google Gemini Ambassador</h3><p>Google</p></div>
                 </div>
             </section>
 
@@ -515,9 +502,9 @@
                 <div class="clip-text"><h2 class="section-title">Education</h2></div>
                 <div class="education-list">
                     <div class="item-card">
-                        <h3 class="item-card-title">B.Tech Computer Science (AI Specialization)</h3>
-                        <p class="item-card-subtitle">Geetanjali Institute of Technical Studies, Udaipur (2023-2027)</p>
-                        <p class="item-card-description">CGPA: 8.92</p>
+                        <h3 class="item-card-title">B.Tech CSE (AI Specialization)</h3>
+                        <p class="item-card-subtitle">Geetanjali Institute of Technical Studies, Udaipur (2023–2027)</p>
+                        <p class="item-card-description">CGPA: 9.42</p>
                     </div>
                      <div class="item-card">
                         <h3 class="item-card-title">Senior Secondary (XII)</h3>
@@ -533,11 +520,12 @@
             </section>
 
             <section class="section" id="awards">
-                <div class="clip-text"><h2 class="section-title">Awards & Publications</h2></div>
+                <div class="clip-text"><h2 class="section-title">Achievements & Publications</h2></div>
                 <div class="grid-container">
-                    <div class="item-card grid-item"><h3>Research Publication - JETIR</h3><p>"Personalized Influenza Medication and Dosage Recommendations."</p></div>
-                    <div class="item-card grid-item"><h3>IEEE Research Competition Finalist</h3><p>Presented an innovative healthcare AI solution.</p></div>
-                    <div class="item-card grid-item"><h3>All India Rank 2393</h3><p>Top 5% among 50,000+ candidates in the Common Internship Test (CIT).</p></div>
+                    <div class="item-card grid-item"><h3>Infosys Pragati – Cohort 7</h3><p>Selected nationally for advanced AI/ML mentorship with Infosys leadership.</p></div>
+                    <div class="item-card grid-item"><h3>AIR 2393 – Common Internship</h3><p>Top 5% among 50,000+ candidates across India.</p></div>
+                    <div class="item-card grid-item"><h3>1st Runner-Up – TIE Udaipur</h3><p>2nd among 40+ teams in 24-hour AI prototype sprint.</p></div>
+                    <div class="item-card grid-item"><h3>Research Publication – JETIR</h3><p>"Personalized Influenza Medication and Dosage Recommendations Based on Genetic and Clinical Factors: A Machine Learning Approach" - Vol. 11, Issue 5, 2024.</p></div>
                 </div>
             </section>
         </div>
@@ -689,10 +677,12 @@
                 // --- CURSOR ---
                 const cursor = document.getElementById('cursor');
                 const hoverElements = document.querySelectorAll('a, button, .item-card, .menu, .contact-card');
-                let mouseX = 0, mouseY = 0;
+                let mouseX = 0, mouseY = 0, normMouseX = 0, normMouseY = 0;
                 window.addEventListener('mousemove', e => {
                     mouseX = e.clientX;
                     mouseY = e.clientY;
+                    normMouseX = (e.clientX / window.innerWidth) * 2 - 1;
+                    normMouseY = -(e.clientY / window.innerHeight) * 2 + 1;
                     gsap.to(cursor, { duration: 0.3, x: mouseX, y: mouseY });
                 });
                 hoverElements.forEach(el => {
@@ -712,7 +702,7 @@
                 });
                 
                 // --- NEW SUBTLE & DYNAMIC 3D BACKGROUND ---
-                let scene, camera, renderer, particleSystem, nebula;
+                let scene, camera, renderer, particleSystem, nebula, torus, dodecahedron;
                 let uniforms;
 
                 function initBackground3D() {
@@ -723,16 +713,51 @@
                     renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
                     renderer.setSize(window.innerWidth, window.innerHeight);
 
+                    // Add lights for 3D effect
+                    const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
+                    scene.add(ambientLight);
+                    const directionalLight = new THREE.DirectionalLight(0x8A2BE2, 0.6);
+                    directionalLight.position.set(1, 1, 1);
+                    scene.add(directionalLight);
+
                     // --- Nebula Core ---
                     const nebulaGeo = new THREE.SphereGeometry(1.2, 32, 32);
-                    const nebulaMat = new THREE.MeshBasicMaterial({
+                    const nebulaMat = new THREE.MeshStandardMaterial({
                         color: getComputedStyle(document.documentElement).getPropertyValue('--accent-color'),
                         transparent: true,
-                        opacity: 0.15, // Slightly more visible core
-                        blending: THREE.AdditiveBlending
+                        opacity: 0.15,
+                        roughness: 0.8,
+                        metalness: 0.2
                     });
                     nebula = new THREE.Mesh(nebulaGeo, nebulaMat);
                     scene.add(nebula);
+
+                    // --- Torus Ring ---
+                    const torusGeo = new THREE.TorusGeometry(2.5, 0.3, 16, 100);
+                    const torusMat = new THREE.MeshStandardMaterial({
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--accent-glow'),
+                        transparent: true,
+                        opacity: 0.2,
+                        roughness: 0.5,
+                        metalness: 0.8,
+                        wireframe: true
+                    });
+                    torus = new THREE.Mesh(torusGeo, torusMat);
+                    torus.rotation.x = Math.PI / 4;
+                    scene.add(torus);
+
+                    // --- Dodecahedron ---
+                    const dodecaGeo = new THREE.DodecahedronGeometry(0.8);
+                    const dodecaMat = new THREE.MeshStandardMaterial({
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--accent-color'),
+                        transparent: true,
+                        opacity: 0.1,
+                        roughness: 0.9,
+                        metalness: 0.1
+                    });
+                    dodecahedron = new THREE.Mesh(dodecaGeo, dodecaMat);
+                    dodecahedron.position.set(-2, -1, -1);
+                    scene.add(dodecahedron);
 
                     // --- Particle Field ---
                     const particleCount = 10000;
@@ -818,6 +843,16 @@
                     uniforms.u_time.value += 0.01;
                     particleSystem.rotation.y += 0.0005;
                     nebula.rotation.y -= 0.0003;
+                    if (torus) {
+                        torus.rotation.x += 0.002 + normMouseX * 0.001;
+                        torus.rotation.y += 0.001 + normMouseY * 0.001;
+                    }
+                    if (dodecahedron) {
+                        dodecahedron.rotation.x += 0.001;
+                        dodecahedron.rotation.y += 0.002;
+                        dodecahedron.position.x = -2 + normMouseX * 0.5;
+                        dodecahedron.position.y = -1 + normMouseY * 0.5;
+                    }
                     camera.position.y = -lenis.scroll * 0.001;
                     renderer.render(scene, camera);
                 }
@@ -826,7 +861,7 @@
                 animateBackground3D();
 
                 // --- FINAL QUOTE ANIMATION ---
-                let finalScene, finalCamera, finalRenderer, finalParticleSystem, finalUniforms;
+                let finalScene, finalCamera, finalRenderer, finalParticleSystem, finalTorus, finalUniforms;
 
                 function initFinalAnimation3D() {
                     const canvas = document.getElementById('final-canvas');
@@ -836,6 +871,27 @@
                     finalCamera.position.z = 3;
                     finalRenderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
                     finalRenderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                    
+                    // Add lights
+                    const finalAmbientLight = new THREE.AmbientLight(0x404040, 0.3);
+                    finalScene.add(finalAmbientLight);
+                    const finalDirectionalLight = new THREE.DirectionalLight(0x8A2BE2, 0.5);
+                    finalDirectionalLight.position.set(1, 1, 1);
+                    finalScene.add(finalDirectionalLight);
+
+                    // --- Final Torus ---
+                    const finalTorusGeo = new THREE.TorusKnotGeometry(1.5, 0.4, 100, 16);
+                    const finalTorusMat = new THREE.MeshStandardMaterial({
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--accent-glow'),
+                        transparent: true,
+                        opacity: 0.2,
+                        roughness: 0.5,
+                        metalness: 0.8,
+                        wireframe: true
+                    });
+                    finalTorus = new THREE.Mesh(finalTorusGeo, finalTorusMat);
+                    finalTorus.position.set(0, 0, -2);
+                    finalScene.add(finalTorus);
                     
                     const particleCount = 5000;
                     const positions = new Float32Array(particleCount * 3);
@@ -897,6 +953,10 @@
                     requestAnimationFrame(animateFinalAnimation3D);
                     if (finalUniforms) finalUniforms.u_time.value += 0.01;
                     if (finalParticleSystem) finalParticleSystem.rotation.y += 0.001;
+                    if (finalTorus) {
+                        finalTorus.rotation.x += 0.003;
+                        finalTorus.rotation.y += 0.002;
+                    }
                     if (finalRenderer) finalRenderer.render(finalScene, finalCamera);
                 }
 
