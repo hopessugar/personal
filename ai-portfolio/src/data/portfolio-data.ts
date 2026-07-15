@@ -253,7 +253,7 @@ export const projects = [
     category: 'AI/ML',
     featured: true,
     thumbnail: '/projects/krishi-mitra.jpg',
-    github: 'https://github.com/hopessugar/krishi-mitra',
+    github: 'https://github.com/Ansikka/KrishiMitra.py',
     demo: 'https://krishi-mitra.vercel.app',
     metrics: [
       {
@@ -433,7 +433,7 @@ export const projects = [
     category: 'AI/ML',
     featured: false,
     thumbnail: '/projects/weed-detection.jpg',
-    github: 'https://github.com/hopessugar/weed-detection',
+    github: 'https://github.com/hopessugar/weed_detection',
     metrics: [
       {
         label: 'Accuracy',

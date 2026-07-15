@@ -235,11 +235,14 @@ function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {projects.slice(0, 4).map((project, i) => (
-                  <div 
-                    key={project.id} 
-                    className="group relative perspective-card"
-                    style={{ animationDelay: `${i * 0.15}s` }}>
-                    
+                  <a
+                    key={project.id}
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative perspective-card block no-underline"
+                    style={{ animationDelay: `${i * 0.15}s` }}
+                  >
                     {/* Glow effect on hover */}
                     <div className="absolute -inset-1 bg-dusty-pink rounded-2xl blur opacity-0 group-hover:opacity-75 transition-opacity duration-500" />
                     
@@ -278,21 +281,25 @@ function App() {
                           ))}
                         </div>
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 mb-4">
                           {project.technologies.slice(0, 5).map((tech, j) => (
                             <span 
                               key={j} 
-                              className="px-3 py-1.5 bg-white border-2 border-black/10 text-charcoal rounded-lg text-xs font-medium hover:bg-dusty-pink hover:text-white hover:border-dusty-pink transition-all cursor-pointer hover:scale-110 shadow-sm">
+                              className="px-3 py-1.5 bg-white border-2 border-black/10 text-charcoal rounded-lg text-xs font-medium group-hover:border-dusty-pink/40 transition-all shadow-sm">
                               {tech}
                             </span>
                           ))}
                         </div>
+
+                        <span className="inline-flex items-center gap-1 text-sm font-medium text-dusty-pink group-hover:text-black transition-colors">
+                          View on GitHub ↗
+                        </span>
                       </div>
 
                       {/* Corner accent */}
                       <div className="absolute top-0 right-0 w-20 h-20 bg-dusty-pink/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
