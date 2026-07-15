@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { personalInfo, projects, experiences, skills } from './data/portfolio-data';
 import Preloader from './components/Preloader';
 

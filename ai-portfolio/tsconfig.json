@@ -27,6 +27,17 @@
   "exclude": [
     "node_modules",
     "dist",
-    "src/**/*backup.tsx"
+    "src/**/*backup.tsx",
+    "src/components/Hero",
+    "src/components/GitHubIntegration",
+    "src/components/ProjectCaseStudy",
+    "src/components/ThreeD",
+    "src/components/Terminal",
+    "src/components/AIPlayground",
+    "src/components/Experience",
+    "src/App-full-backup.tsx",
+    "src/App-simple-backup.tsx",
+    "src/main.ts",
+    "src/counter.ts"
   ]
 }
